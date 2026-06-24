@@ -1,0 +1,2 @@
+cd angular-sandbox
+npm test -- --no-watch
