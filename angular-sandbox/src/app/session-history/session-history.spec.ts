@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { SessionHistory } from './session-history';
 
@@ -9,6 +10,7 @@ describe('SessionHistory', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SessionHistory],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SessionHistory);
