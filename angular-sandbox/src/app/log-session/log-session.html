@@ -1,0 +1,39 @@
+<section class="log-session">
+  <h1>Log Practice Session</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="field">
+      <label for="date">Date</label>
+      <input id="date" type="date" formControlName="date" />
+    </div>
+
+    <div class="field">
+      <label for="duration">Duration (minutes)</label>
+      <input id="duration" type="number" formControlName="durationMinutes" min="1" />
+    </div>
+
+    <div class="field">
+      <label>Focus Areas</label>
+      <div class="focus-chips">
+        @for (area of focusAreas; track area) {
+          <button
+            type="button"
+            class="chip"
+            [class.selected]="isFocusSelected(area)"
+            (click)="toggleFocus(area)"
+          >{{ area }}</button>
+        }
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="notes">Notes</label>
+      <textarea id="notes" formControlName="notes" rows="4" placeholder="What did you work on?"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary" [disabled]="form.invalid">Save Session</button>
+      <a routerLink="/" class="btn-secondary">Cancel</a>
+    </div>
+  </form>
+</section>

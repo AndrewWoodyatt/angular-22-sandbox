@@ -1,0 +1,34 @@
+<section class="session-history">
+  <div class="header">
+    <h1>Practice History</h1>
+    <a routerLink="/log" class="btn-primary">Log Session</a>
+  </div>
+
+  @if (practice.sessions().length === 0) {
+    <p class="empty-state">No sessions logged yet.</p>
+  } @else {
+    <ul class="session-list">
+      @for (session of practice.sessions(); track session.id) {
+        <li class="session-card">
+          <div class="session-meta">
+            <span class="session-date">{{ formatDate(session.date) }}</span>
+            <span class="session-duration">{{ formatDuration(session.durationMinutes) }}</span>
+          </div>
+          @if (session.focusAreas.length > 0) {
+            <div class="session-focus">
+              @for (area of session.focusAreas; track area) {
+                <span class="chip">{{ area }}</span>
+              }
+            </div>
+          }
+          @if (session.notes) {
+            <p class="session-notes">{{ session.notes }}</p>
+          }
+          <button class="btn-delete" (click)="delete(session.id)" aria-label="Delete session">Delete</button>
+        </li>
+      }
+    </ul>
+  }
+
+  <a routerLink="/" class="btn-secondary back-link">← Back to Dashboard</a>
+</section>

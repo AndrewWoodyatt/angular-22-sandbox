@@ -1,0 +1,12 @@
+<nav class="app-nav">
+  <span class="nav-brand">🎷 Sax Tracker</span>
+  <div class="nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+    <a routerLink="/log" routerLinkActive="active">Log</a>
+    <a routerLink="/history" routerLinkActive="active">History</a>
+  </div>
+</nav>
+
+<main class="app-main">
+  <router-outlet />
+</main>

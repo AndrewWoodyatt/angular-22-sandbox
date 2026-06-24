@@ -1,0 +1,31 @@
+<section class="dashboard">
+  <h1>Saxophone Practice</h1>
+
+  <div class="stats">
+    <div class="stat-card">
+      <span class="stat-value">{{ practice.sessionCount() }}</span>
+      <span class="stat-label">Total Sessions</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ formatTime(practice.totalMinutes()) }}</span>
+      <span class="stat-label">Total Practice Time</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ formatTime(practice.weeklyMinutes()) }}</span>
+      <span class="stat-label">This Week</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ practice.currentStreak() }}</span>
+      <span class="stat-label">Day Streak</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a routerLink="/log" class="btn-primary">Log Practice Session</a>
+    <a routerLink="/history" class="btn-secondary">View History</a>
+  </div>
+
+  @if (practice.sessions().length === 0) {
+    <p class="empty-state">No sessions yet — start by logging your first practice!</p>
+  }
+</section>
